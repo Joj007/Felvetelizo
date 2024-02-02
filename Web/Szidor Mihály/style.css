@@ -1,0 +1,93 @@
+body{
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+.sikeres{
+    color: rgb(12, 164, 12);
+}
+
+.sikertelen{
+    color: rgb(226, 8, 8);
+}
+
+#auth{
+    font-size: 22px;
+}
+
+#container{
+    width: 550px;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+#keres{
+    margin: 10px;
+    padding: 5px;
+    width: 220px;
+    font-size: 18px;
+}
+
+#OM{
+    height: 24px;
+    font-size: 20px;
+    width: 140px;
+}
+
+#OMszoveg{
+    font-weight: bold;
+}
+
+.vonal{
+    border: solid rgb(105, 105, 105) 2px;
+    margin-bottom: 15px;
+}
+
+.sor{
+    width: 530px;
+    display: inline-block;
+}
+
+.cim{
+    width: 160px;
+    text-align: center;
+    float: left;
+    font-size: 18px;
+    background-color: red;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.adat{
+    background-color: aliceblue;
+    width: 350px;
+    text-align: center;
+    float: left;
+    font-size: 18px;
+    padding: 5px;
+}
+
+#tobbPontosok{
+    font-size: 18px;
+}
+
+#tabladiv{
+    margin: 5px;
+}
+
+.tabla{
+    display: inline-block;
+    margin: 10px;
+}
+td{
+    background-color: aliceblue;
+    padding: 5px;
+}
+
+th{
+    border-bottom: solid salmon 4px;
+}
+
+tr{
+    margin-bottom: 2px;
+}

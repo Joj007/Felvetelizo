@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMaz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="container">
+        <form onsubmit="return false">
+            <hr class="vonal">
+            <label for="OMaz" id="OMszoveg">OM: </label>
+            <input type="text" name="OMaz" id="OM" maxlength="11">
+            <br>
+            <button id="keres" onclick="Keres()">Keres</button>
+            <br>
+            <label id="auth"></label>
+            <hr class="vonal">
+            <div id="talalat"></div>
+            <hr class="vonal">
+            <div id="tobbPontosok"></div>
+            <hr class="vonal">
+            <div id="tabladiv">
+                <table id="talalatTabla1" class="tabla"></table>
+                <table id="talalatTabla2" class="tabla"></table>
+            </div>
+            <hr class="vonal">
+        </form>
+    </div>
+</body>
+</html>

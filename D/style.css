@@ -1,0 +1,127 @@
+.rendezett{
+    background-color: azure;
+}
+
+body{
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0px;
+}
+
+td::selection, th::selection, label::selection, input::selection{
+    background-color: transparent;
+}
+
+table{
+    border-radius: 30px;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: auto;
+    background-image: url("bg2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 10px 10px 40px 40px rgba(168, 34, 245, 0.3);
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to right bottom, rgb(255, 39, 208), rgb(0, 68, 255));
+}
+
+td, th{
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+    transition: 0.3s;
+    width: 150px;
+    height: 40px;
+}
+
+td{
+    background: linear-gradient(to right bottom, rgb(255, 39, 208), rgb(0, 68, 255));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+
+tr:nth-child(2n){
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+tr:nth-child(2n+1){
+    background-color: rgba(250, 250, 250, 0.7);
+    color: black;
+}
+
+th{
+    background-color: darkgray;
+}
+
+tr:hover{
+    background-color: white;
+    color: black;
+}
+
+label{
+    margin: auto;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+input{
+    border: none;
+    width: 80%;
+    height: 50px;
+    font-size: 40px;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    margin: auto;
+    border-bottom: 7px ridge black;
+}
+
+#pontszam{
+    margin-bottom: 100px;
+}
+
+input:focus{
+    outline: none;
+}
+
+#kereso{
+    box-shadow: 0px 0px 10px 10px rgba(168, 34, 245, 0.3);
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+    border-image-source: linear-gradient(to right bottom, rgb(255, 39, 208), rgb(0, 68, 255));
+    background-color: rgba(0, 0, 0, 0.7);
+    height: fit-content;
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+thead{
+    background-color: aliceblue;
+}
+
+#flex-container{
+    display: flex;
+    gap: 10px;
+    flex-direction: column
+}
+
+
+#table-div{
+    width: 80%;
+    margin: auto;
+    overflow-x:auto;
+    margin-bottom: 30px;
+}

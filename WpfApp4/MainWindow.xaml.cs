@@ -1,4 +1,4 @@
-﻿using Microsoft.Win32;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +19,8 @@ using System.Windows.Markup.Localizer;
 using static System.Net.Mime.MediaTypeNames;
 using System.Text.Json;
 using System.Text.Encodings.Web;
+using MySqlConnector;
+using System.Windows.Controls.Primitives;
 
 namespace WpfApp4
 {
@@ -180,6 +182,76 @@ namespace WpfApp4
         private void Kilepes_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void SQLexport_Click(object sender, RoutedEventArgs e)
+        {
+            string connection = "Server=localhost;Database=felvetelisql;User ID=root;Password=;";
+
+            using (MySqlConnection con = new MySqlConnection(connection))
+            {
+                try
+                {
+                    con.Open();
+
+                    string clear = "delete from felvetelitabla";
+                    using (MySqlCommand clearParancs = new MySqlCommand(clear, con))
+                    {
+                        clearParancs.ExecuteNonQuery();
+                    }
+
+                    diakok.ToList().ForEach(item => {
+                        MessageBox.Show(item.OM_Azonosito);
+                        string push = $"insert into felvetelitabla (om,nev,cim,email,datum,matek,magyar) values({item.OM_Azonosito}, '{item.Neve}', '{item.ErtesitesiCime}', '{item.Email}', '{item.SzuletesiDatum.Year}-{item.SzuletesiDatum.Month}-{item.SzuletesiDatum.Day}', {item.Matematika}, {item.Magyar})";
+                        using (MySqlCommand pushParancs = new MySqlCommand(push, con)) {pushParancs.ExecuteNonQuery();}
+                    });
+                    MessageBox.Show(":)");
+                    con.Close();
+                    
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(":(\n"+ex);
+                }
+            }
+
+
+        }
+
+        private void SQLimport_Click(object sender, RoutedEventArgs e)
+        {
+            string connection = "Server=localhost;Database=felvetelisql;User ID=root;Password=;";
+
+            using (MySqlConnection con = new MySqlConnection(connection))
+            {
+                try
+                {
+                    con.Open();
+                    diakok.Clear();
+                    string selectSzoveg = "SELECT * FROM felvetelitabla";
+
+                    using (MySqlCommand selectParancs = new MySqlCommand(selectSzoveg, con))
+                    {
+                        using (MySqlDataReader reader = selectParancs.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                diakok.Add(new Ujdiak(reader.GetString("om"), reader.GetString("nev"), reader.GetString("email"), DateTime.Now, reader.GetString("cim"), reader.GetInt32("magyar"), reader.GetInt32("matek")));
+                            }
+                        }
+                    }
+                    dgLista.ItemsSource = diakok;
+                    con.Close();
+                    MessageBox.Show(":)");
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(":(\n" + ex);
+                }
+            }
+
         }
     }
 }

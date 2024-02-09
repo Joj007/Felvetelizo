@@ -184,7 +184,9 @@ let adatok = [
 
 function Keres()
 {
-    let osszPont = 0;
+  let adatokSzama = 0;
+  let matekSzam = 0;
+  let magyarSzam = 0;
     let talalat = false
     let numberRegex = /^\d+$/;  
     document.getElementById("talalat").innerHTML = ""
@@ -192,61 +194,67 @@ function Keres()
     let csere = true
     document.getElementById("talalat").innerHTML = ""
     if (!numberRegex.test(azon) && azon != "") {
-        document.getElementById("auth").innerText = "Sikertelen keresés"
-        document.getElementById("auth").classList = "sikertelen"
         alert("Az OM azonosító csak számokból állhat")
     }
     else{
         let tabla = document.createElement("table")
+        tabla.innerHTML = `<tr>
+        <th>OM azonosító</th>
+        <th>Név</th>
+        <th>Lakcím</th>
+        <th>Email</th>
+        <th>Születés</th>
+        <th>Matematika</th>
+        <th>Magyar</th>
+        </tr>`
         for (let adat of adatok.filter(function(objektum){
           return objektum.OM_Azonosito.startsWith(azon)
         }).filter(function(masodikfilt){
           return masodikfilt.Neve.toLowerCase().startsWith(document.getElementById("NEV").value.toLowerCase())
         })) {
-            console.log(adat)
+          adatokSzama += 1
+          matekSzam += adat.Matematika
+          magyarSzam += adat.Magyar
                 let sor = document.createElement("tr")
                 sor.innerHTML = 
                 `
                   <tr>
                     <td>
-                      ${adat.Email}
-                    </td>
-                    <td>
-                      ${adat.ErtesitesiCime}
-                    </td>
-                    <td>
-                      ${adat.Magyar}
-                    </td>
-                    <td>
-                      ${adat.Matematika}
+                      ${adat.OM_Azonosito}
                     </td>
                     <td>
                       ${adat.Neve}
                     </td>
                     <td>
-                      ${adat.OM_Azonosito}
+                      ${adat.ErtesitesiCime}
+                    </td>
+                    <td>
+                      ${adat.Email}
                     </td>
                     <td>
                       ${adat.SzuletesiDatum}
                     </td>
+                    <td>
+                      ${adat.Matematika}
+                    </td>
+                    <td>
+                      ${adat.Magyar}
+                    </td>
                   </tr>
                   `
-                  console.log(sor)
                   tabla.appendChild(sor)
                 osszPont = adat.Matematika + adat.Magyar
                 talalat = true
         }
         document.getElementById("talalat").appendChild(tabla)
-        
-        if (talalat) {
-          let tobbetElerokSzama = 0
-            document.getElementById("auth").classList = "sikeres"
-            document.getElementById("auth").innerText = "Sikeres találat"
-          }
-        else{
-            document.getElementById("auth").classList = "sikertelen"
-            document.getElementById("auth").innerText = "Nincs találat"
-        }
-        
+        document.getElementById("adatok").innerHTML =
+        `
+        <div class="eredmeny">Találatok Száma: ${adatokSzama}db</div>
+        <div class="eredmeny">Matematika pontszámok átlaga: ${Math.round(matekSzam/adatokSzama*10)/10}</div>
+        <div class="eredmeny">Magyar pontszámok átlaga: ${Math.round(magyarSzam/adatokSzama*10)/10}</div>
+        <div class="eredmeny">Összesített pontszámok átlaga: ${Math.round((matekSzam+magyarSzam)/adatokSzama*10)/10}</div>
+        `
+        console.log(matekSzam)
     }
 }
+Keres()

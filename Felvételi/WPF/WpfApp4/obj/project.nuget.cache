@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "i8DYajzvmq2xuy0JI4CObKvpBLV8fPFxgIkv6rGRAr4J7pMS0MFad7fYCqbZs/urOGg4eP8iSEx48/z1xEwR4g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sinka\\OneDrive\\Asztali gép\\Felvételi\\WPF\\WpfApp4\\WpfApp4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sinka\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\sinka\\.nuget\\packages\\mysqlconnector\\2.3.5\\mysqlconnector.2.3.5.nupkg.sha512",
+    "C:\\Users\\sinka\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.2\\system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",
+    "C:\\Users\\sinka\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

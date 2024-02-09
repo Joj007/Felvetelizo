@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="js.js"></script>
+    <title>Felvételitető</title>
+</head>
+<body>
+    <div id="flex-container">
+        <div class="flex-item" id="kereso">
+            <label for="pontszam">Minimum pontszám: </label><br>
+            <input placeholder="0" onchange="FeltoltTablat()" id="pontszam" type="number"><br>
+            <label for="nevszuro">Név: </label><br>
+            <input onchange="FeltoltTablat()" placeholder="Ide írjon egy nevet" id="nevszuro" type="text">
+        </div>
+        <div id="table-div" class="flex-item">
+            <table>
+                <thead>
+                    <tr>
+                        <th id="om" onclick="rendezesOM()">OM</th>
+                        <th id="nev" onclick="rendezesNev()">Név</th>
+                        <th id="matek" onmouseleave="atlagKi()" onmouseenter="atlagMatek(this)" onclick="rendezesMatek()">Matek</th>
+                        <th id="magyar" onmouseleave="atlagKi()" onmouseenter="atlagMagyar(this)" onclick="rendezesMagyar()">Magyar</th>
+                        <th id="osszes" onmouseleave="atlagKi()" onmouseenter="atlagOsszes(this)" onclick="rendezesOsszes()">Összesen</th>
+                    </tr>
+                </thead>
+                <tbody id="tablatest">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+
+    </div>
+    
+</body>
+</html>
